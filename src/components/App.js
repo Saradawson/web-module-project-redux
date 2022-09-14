@@ -12,8 +12,7 @@ import AddMovieForm from './AddMovieForm';
 import FavoriteMovieList from './FavoriteMovieList';
 
 const App = props => {
-  const displayFavorites = true;
-
+  const displayFavorites = props.displayFavorites;
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark">
@@ -48,4 +47,10 @@ const App = props => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+  displayFavorites: state.favoritesReducer.displayFavorites 
+  }
+}
+
+export default connect(mapStateToProps)(App);
