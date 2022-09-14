@@ -9,6 +9,7 @@ const Movie = (props) => {
 
     const movies = props.movies;
     const deleteMovie = props.deleteMovie;
+    const displayFavorites = props.displayFavorites;
     const movie = movies.find(movie=>movie.id===Number(id));
 
     const deleteClick = () => {
@@ -57,7 +58,8 @@ const Movie = (props) => {
 
 const mapStateToProps = state => {
     return {
-        movies: state.movies
+        displayFavorites: state.favoritesReducer.displayFavorites,
+        movies: state.movieReducer.movies
     }
 }
 
